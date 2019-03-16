@@ -1,6 +1,8 @@
 'use strict';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-function HelloFunctionalComponent() {
+export default function HelloFunctionalComponent() {
   return React.createElement(
     'div',
     {},
@@ -28,5 +30,5 @@ class HelloComponent extends React.Component {
   }
 }
 
-const domContainer = document.querySelector('#hello_world_container');
+const domContainer = document.getElementById('hello_world_container');
 ReactDOM.render(React.createElement(HelloComponent), domContainer);

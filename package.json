@@ -4,10 +4,26 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.16.4"
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.5.0",
+    "babel-loader": "^8.0.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "express": "^4.16.4",
+    "jest": "^24.5.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-redux": "^6.0.1",
+    "react-router": "^4.4.0",
+    "redux": "^4.0.1"
   },
   "scripts": {
-    "test": "test"
+    "test": "jest",
+    "dev": "webpack --mode=development",
+    "prod": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
@@ -21,6 +37,6 @@
   "homepage": "https://github.com/BGRTi/react-course#readme",
   "devDependencies": {
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.3.0"
   }
 }
