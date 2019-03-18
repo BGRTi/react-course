@@ -10,6 +10,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.2.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "express": "^4.16.4",
@@ -23,8 +24,8 @@
   "scripts": {
     "lint": "eslint",
     "test": "jest",
-    "webpack:dev": "SET NODE_ENV=development webpack --config ./webpack/webpack-dev.cfg.js",
-    "webpack:prod": "SET NODE_ENV=production webpack --config ./webpack/webpack-prod.cfg.js"
+    "webpack:dev": "cross-env NODE_ENV=development webpack --config ./webpack/webpack-dev.cfg.js",
+    "webpack:prod": "cross-env NODE_ENV=production webpack --config ./webpack/webpack-prod.cfg.js"
   },
   "repository": {
     "type": "git",
