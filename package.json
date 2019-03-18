@@ -22,8 +22,8 @@
   },
   "scripts": {
     "test": "jest",
-    "dev": "webpack --mode=development",
-    "prod": "webpack --mode=production"
+    "webpack:dev": "SET NODE_ENV=development webpack --config ./webpack/webpack-dev.cfg.js",
+    "webpack:prod": "SET NODE_ENV=production webpack --config ./webpack/webpack-prod.cfg.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   }

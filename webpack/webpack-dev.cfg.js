@@ -5,14 +5,14 @@ const webpack = require('webpack');
 
 
 module.exports = {
-    entry: "./index",
+    entry: "../index",
     output: {
         filename: "bundle.js"
     },
 
     mode: NODE_ENV,
 
-    watch: NODE_ENV == 'development',
+    watch: NODE_ENV,
 
     devtool: NODE_ENV == 'development' ? "source-map" : null,
 
