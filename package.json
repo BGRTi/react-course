@@ -21,6 +21,7 @@
     "redux": "^4.0.1"
   },
   "scripts": {
+    "lint": "eslint",
     "test": "jest",
     "webpack:dev": "SET NODE_ENV=development webpack --config ./webpack/webpack-dev.cfg.js",
     "webpack:prod": "SET NODE_ENV=production webpack --config ./webpack/webpack-prod.cfg.js"
@@ -38,6 +39,8 @@
   "devDependencies": {
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "eslint": "^5.15.2",
+    "eslint-plugin-react": "^7.12.4",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
