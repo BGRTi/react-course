@@ -23,12 +23,12 @@ module.exports = {
     ],
     resolve: {
         modulesDirections: ['node_modules'],
-        extentions: ['', 'js']
+        extentions: ['*','.js']
     },
     resolveLoader: {
         modulesDirections: ['node_modules'],
-        modulesTemplates: ['*-loader', ''],
-        extentions: ['', 'js']
+        modulesTemplates: ['-loader'],
+        extentions: ['*','.js']
     },
     module: {
         rules: [{
