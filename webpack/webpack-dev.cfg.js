@@ -5,7 +5,7 @@ const webpack = require('webpack');
 
 
 module.exports = {
-    entry: "../index",
+    entry: "./index",
     output: {
         filename: "bundle.js"
     },
@@ -22,22 +22,26 @@ module.exports = {
         })
     ],
     resolve: {
-        modulesDirections: ['node_modules'],
-        extentions: ['*','.js']
+        modules: ['node_modules'],
+        extensions: ['*','.js']
     },
     resolveLoader: {
-        modulesDirections: ['node_modules'],
-        modulesTemplates: ['-loader'],
-        extentions: ['*','.js']
-    },
+        modules: ['node_modules'],
+        extensions: ['.js', '.json'],
+        mainFields: ['loader', 'main']
+      },
     module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: [{
-                loader: 'babel-loader',
-            }]
-        }]
+        rules: [
+          {
+            test: /\.m?js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env']
+              }
+            }
+          }
+        ]
     }
-
 };
