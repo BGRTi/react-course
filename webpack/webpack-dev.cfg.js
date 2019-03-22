@@ -12,7 +12,7 @@ module.exports = {
 
     mode: NODE_ENV,
 
-    watch: NODE_ENV,
+    watch: true,
 
     devtool: NODE_ENV == 'development' ? "source-map" : null,
 
