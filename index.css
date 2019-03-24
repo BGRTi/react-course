@@ -4,6 +4,28 @@
 .main-header {
     width: 100%;
 }
+.main-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    background-color: black;
+    height: 300px;
+}
 .main-search--input {
     width: 100%;
+}
+.movies-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.movie-card {
+    display: block;
+    width: 30%;
+    align-self: center;
 }

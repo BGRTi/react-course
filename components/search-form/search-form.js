@@ -19,11 +19,15 @@ export default class SearchForm extends React.Component {
     }
 
     render() {
-        return <form className="main-search" onSubmit={this.handleSubmit}>
-        <label>
-            <input className="main-search--input" type="text" placeholder='Enter a film' value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input className="main-search--button" type="submit" value="Submit" />
-    </form>
+        return <React.Fragment> 
+            <form className="main-search" onSubmit={this.handleSubmit}>
+                <label>
+                    <input className="main-search--input" type="text" placeholder='Enter a film' value={this.state.value} onChange={this.handleChange} />
+                </label>
+                <input className="main-search--button" type="submit" value="Submit" />
+            </form>
+            <input className="movies-container--button" type="submit" value="Title" />
+            <input className="movies-container--button" type="submit" value="Genre" />
+        </React.Fragment>
     }
 }
