@@ -2,6 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Header from './components/header/header';
+import SearchForm from './components/search-form/search-form';
 import MainComponent from './components/main/main';
 import MoviePageComponent from './components/movie-page/movie-page'
 
@@ -9,17 +11,10 @@ function AppRouter() {
     return (
       <Router>
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/movie/">About</Link>
-              </li>
-            </ul>
-          </nav>
-  
+          <Link to="/">Home</Link>
+          <Link to="/movie/">About</Link>
+          <Header />
+          <SearchForm />
           <Route path="/" exact component={MainComponent} />
           <Route path="/movie/" component={MoviePageComponent} />
         </div>
@@ -27,4 +22,4 @@ function AppRouter() {
     );
 }
 
-ReactDOM.render(<MainComponent />, document.getElementById('root'));
+ReactDOM.render(<AppRouter />, document.getElementById('root'));
