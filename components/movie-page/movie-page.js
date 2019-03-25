@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default class MoviesContainer extends React.Component {
+export default class MoviePageContainer extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
+
         this.state = {
             films: [
                 {
@@ -13,22 +13,6 @@ export default class MoviesContainer extends React.Component {
                     duration: '151',
                     description: 'Some text about film',
                     genres: ['drama', 'ne drama']
-                },
-                {
-                    id: 2,
-                    name: 'second',
-                    year: '1992',
-                    duration: '152',
-                    description: 'Some text about film',
-                    genres: ['drama']
-                },
-                {
-                    id: 3,
-                    name: 'third',
-                    year: '1993',
-                    duration: '153',
-                    description: 'Some text about film',
-                    genres: ['drama', 'ne drama']
                 }
             ],
         }
@@ -36,13 +20,14 @@ export default class MoviesContainer extends React.Component {
 
     render() {
         return <React.Fragment>
-            <div className='movies-container'>    
+            <div className='movie-page'></div>
+            <div className='movie-page--other'>    
                 { this.state.films.length != 0 ? this.state.films.map((film) => {
                     return <div className='movie-card' key={film.id}>
                         <img src='https://via.placeholder.com/150' />
                         <div>{film.name}</div>
                     </div>
-                }) : 'Films not found'}
+                }) : ''}
             </div>
         </React.Fragment>
     }
