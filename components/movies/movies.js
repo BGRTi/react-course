@@ -1,9 +1,10 @@
 import React from 'react';
+import CardsList from '../cards-list/cards-list';
 
 export default class MoviesContainer extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
+
         this.state = {
             films: [
                 {
@@ -35,15 +36,6 @@ export default class MoviesContainer extends React.Component {
     }
 
     render() {
-        return <React.Fragment>
-            <div className='movies-container'>    
-                { this.state.films.length != 0 ? this.state.films.map((film) => {
-                    return <div className='movie-card' key={film.id}>
-                        <img src='https://via.placeholder.com/150' />
-                        <div>{film.name}</div>
-                    </div>
-                }) : 'Films not found'}
-            </div>
-        </React.Fragment>
+        return <CardsList films={this.state.films}/>
     }
 }

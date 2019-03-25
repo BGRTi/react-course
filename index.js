@@ -1,6 +1,7 @@
 'use strict';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import MainComponent from './components/main/main';
 import MoviePageComponent from './components/movie-page/movie-page'
 
@@ -24,6 +25,6 @@ function AppRouter() {
         </div>
       </Router>
     );
-  }
+}
 
-ReactDOM.render(<AppRouter />, document.getElementById('root'));
+ReactDOM.render(<MainComponent />, document.getElementById('root'));
