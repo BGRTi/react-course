@@ -5,7 +5,7 @@ const webpack = require('webpack');
 
 
 module.exports = {
-    entry: "./index",
+    entry: "./index.jsx",
     output: {
         filename: "bundle.js"
     },
@@ -23,11 +23,11 @@ module.exports = {
     ],
     resolve: {
         modules: ['node_modules'],
-        extensions: ['*','.js']
+        extensions: ['*','.js', '.jsx']
     },
     resolveLoader: {
         modules: ['node_modules'],
-        extensions: ['.js', '.json'],
+        extensions: ['.js', '.jsx', '.json'],
         mainFields: ['loader', 'main']
       },
     module: {
