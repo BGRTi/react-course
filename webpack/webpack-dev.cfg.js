@@ -23,22 +23,22 @@ module.exports = {
     ],
     resolve: {
         modules: ['node_modules'],
-        extensions: ['*','.js']
+        extensions: ['*', '.js', '.jsx']
     },
     resolveLoader: {
         modules: ['node_modules'],
-        extensions: ['.js', '.json'],
+        extensions: ['.js', '.jsx', '.json'],
         mainFields: ['loader', 'main']
       },
     module: {
         rules: [
           {
-            test: /\.m?js$/,
+            test: /\.m?js|jsx$/,
             exclude: /(node_modules|bower_components)/,
             use: {
               loader: 'babel-loader',
               options: {
-                presets: ['@babel/preset-env']
+                presets: ['@babel/preset-env','@babel/preset-react']
               }
             }
           }

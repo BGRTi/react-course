@@ -1,4 +1,5 @@
 import React from 'react';
+import CardsList from '../cards-list/cards-list';
 
 export default class MoviePageContainer extends React.Component {
     constructor(props) {
@@ -19,16 +20,11 @@ export default class MoviePageContainer extends React.Component {
     }
 
     render() {
-        return <React.Fragment>
-            <div className='movie-page'></div>
-            <div className='movie-page--other'>    
-                { this.state.films.length != 0 ? this.state.films.map((film) => {
-                    return <div className='movie-card' key={film.id}>
-                        <img src='https://via.placeholder.com/150' />
-                        <div>{film.name}</div>
-                    </div>
-                }) : ''}
-            </div>
-        </React.Fragment>
+        return (
+            <React.Fragment>
+                <div className='movie-page'></div>
+                <CardsList films={this.state.films}/>
+            </React.Fragment>
+        )
     }
 }

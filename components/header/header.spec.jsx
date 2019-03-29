@@ -1,11 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-// Components
-import HelloFunctionalComponent from './index';
+import Header from './Header';
 
 function setup() {
-  const wrapper = shallow(<HelloFunctionalComponent />);
+  const wrapper = shallow(<Header />);
   return { wrapper };
 }
 
