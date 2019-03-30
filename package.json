@@ -10,8 +10,6 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "cross-env": "^5.2.0",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.11.2",
     "express": "^4.16.4",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
@@ -23,8 +21,15 @@
   "scripts": {
     "lint": "eslint",
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "webpack:dev": "cross-env NODE_ENV=development webpack --config ./webpack/webpack-dev.cfg.js",
     "webpack:prod": "cross-env NODE_ENV=production webpack --config ./webpack/webpack-prod.cfg.js"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "repository": {
     "type": "git",
@@ -42,12 +47,17 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^24.5.0",
+    "react-test-renderer": "^16.8.6",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"

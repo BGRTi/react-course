@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme';
-
 import CardsList from './cards-list';
 
 const filmsMock = {
@@ -19,6 +18,11 @@ function setup() {
   const wrapper = shallow(CardsList(filmsMock.films));
   return { wrapper };
 }
+
+test('render a CardsList', () => {
+  const { wrapper } = setup();
+  expect(wrapper).toMatchSnapshot();
+});
 
 describe('CardsList Test Suite', () => {
   it('Should have an image', () => {

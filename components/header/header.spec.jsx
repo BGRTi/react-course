@@ -8,6 +8,11 @@ function setup() {
   return { wrapper };
 }
 
+test('render a Header', () => {
+  const { wrapper } = setup();
+  expect(wrapper).toMatchSnapshot();
+});
+
 describe('HelloFunctionalComponent Test Suite', () => {
   it('Should have an image', () => {
     const { wrapper } = setup();
