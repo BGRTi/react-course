@@ -19,7 +19,6 @@ function setup() {
   return { wrapper };
 }
 
-
 describe('CardsList Test Suite', () => {
   it('render a CardsList', () => {
     const { wrapper } = setup();
