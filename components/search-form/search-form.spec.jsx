@@ -1,21 +1,21 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Header from './Header';
+import SearchForm from './search-form';
 
 function setup() {
-  const wrapper = shallow(<Header />);
+  const wrapper = shallow(<SearchForm />);
   return { wrapper };
 }
 
-describe('HelloFunctionalComponent Test Suite', () => {
-  it('render a Header', () => {
+describe('SearchForm Test Suite', () => {
+  it('render a MoviePageContainer', () => {
     const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });
-
+      
   it('Should have an image', () => {
     const { wrapper } = setup();
-    expect(wrapper.find('div').exists()).toBe(true);
+    expect(wrapper.find('.main-search').exists()).toBe(true);
   });
 });

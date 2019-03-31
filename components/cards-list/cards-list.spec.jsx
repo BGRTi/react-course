@@ -19,12 +19,13 @@ function setup() {
   return { wrapper };
 }
 
-test('render a CardsList', () => {
-  const { wrapper } = setup();
-  expect(wrapper).toMatchSnapshot();
-});
 
 describe('CardsList Test Suite', () => {
+  it('render a CardsList', () => {
+    const { wrapper } = setup();
+    expect(wrapper).toMatchSnapshot();
+  });  
+
   it('Should have an image', () => {
     const { wrapper } = setup();
 
