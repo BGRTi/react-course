@@ -13,7 +13,6 @@ const AppRouter = () => (
       <Link to="/">Home</Link>
       <Link to="/movie/">About</Link>
       <Header />
-      <SearchForm />
       <Route path="/" exact component={MainComponent} />
       <Route path="/movie/" component={MoviePageComponent} />
     </div>

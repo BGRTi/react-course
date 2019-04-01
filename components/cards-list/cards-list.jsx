@@ -1,12 +1,9 @@
 import React from 'react';
-
-const CardsList = ({ props }) => (
+import Card from '../card/card'
+const CardsList = ({ films }) => (
   <div className="movies-container">
-    { props.films.length !== 0 ? props.films.map(film => (
-      <div className="movie-card" key={film.id}>
-        <img src="https://via.placeholder.com/150" alt="img" />
-        <div>{film.name}</div>
-      </div>
+    { films.length !== 0 ? films.map(film => (
+      <Card film={film} key={film.id} />
     )) : 'Films not found'}
   </div>
 );

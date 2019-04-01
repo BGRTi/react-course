@@ -10,7 +10,7 @@ export default class SearchForm extends React.Component {
     this.setState({ value: event.target.value });
   }
 
-  handleSubmit =(event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
   }
 

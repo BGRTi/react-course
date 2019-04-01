@@ -86,6 +86,33 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/card/card.jsx":
+/*!**********************************!*\
+  !*** ./components/card/card.jsx ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Card = function Card(_ref) {
+  var film = _ref.film;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "movie-card"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://via.placeholder.com/200x300",
+    alt: "img"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, film.name));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Card);
+
+/***/ }),
+
 /***/ "./components/cards-list/cards-list.jsx":
 /*!**********************************************!*\
   !*** ./components/cards-list/cards-list.jsx ***!
@@ -97,20 +124,19 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _card_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../card/card */ "./components/card/card.jsx");
+
 
 
 var CardsList = function CardsList(_ref) {
-  var props = _ref.props;
+  var films = _ref.films;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "movies-container"
-  }, props.films.length !== 0 ? props.films.map(function (film) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "movie-card",
+  }, films.length !== 0 ? films.map(function (film) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_card_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      film: film,
       key: film.id
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      src: "https://via.placeholder.com/150",
-      alt: "img"
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, film.name));
+    });
   }) : 'Films not found');
 };
 
@@ -596,7 +622,7 @@ var AppRouter = function AppRouter() {
     to: "/"
   }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
     to: "/movie/"
-  }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header_header__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_search_form_search_form__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header_header__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/",
     exact: true,
     component: _components_main_main__WEBPACK_IMPORTED_MODULE_5__["default"]

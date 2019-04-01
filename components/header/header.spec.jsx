@@ -16,6 +16,6 @@ describe('HelloFunctionalComponent Test Suite', () => {
 
   it('Should have an image', () => {
     const { wrapper } = setup();
-    expect(wrapper.find('div').exists()).toBe(true);
+    expect(wrapper.find('.main-header').exists()).toBe(true);
   });
 });

@@ -1,4 +1,5 @@
 import { shallow } from 'enzyme';
+import React from 'react';
 import CardsList from './cards-list';
 
 const filmsMock = {
@@ -15,7 +16,7 @@ const filmsMock = {
 };
 
 function setup() {
-  const wrapper = shallow(CardsList(filmsMock.films));
+  const wrapper = shallow(<CardsList films={filmsMock.films} />);
   return { wrapper };
 }
 
@@ -28,7 +29,6 @@ describe('CardsList Test Suite', () => {
   it('Should have an image', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.movie-card').exists()).toBe(true);
-    expect(wrapper.find('img').exists()).toBe(true);
+    expect(wrapper.find('.movies-container').exists()).toBe(true);
   });
 });

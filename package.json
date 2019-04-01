@@ -28,9 +28,23 @@
     "webpack:prod": "cross-env NODE_ENV=production webpack --config ./webpack/webpack-prod.cfg.js"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "*.jsx"
+    ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
-    ]
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
   },
   "repository": {
     "type": "git",

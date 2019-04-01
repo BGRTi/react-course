@@ -30,6 +30,5 @@ describe('MoviesContainer Test Suite', () => {
   it('Should have an image', () => {
     const { wrapper } = setup();
     expect(wrapper.find(CardsList).exists()).toBe(true);
-    expect(wrapper.find(CardsList).render().find('.movies-container')).toBe(true);
   });
 });
