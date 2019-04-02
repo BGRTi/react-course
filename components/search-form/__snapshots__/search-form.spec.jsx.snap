@@ -1,3 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchForm Test Suite render a MoviePageContainer 1`] = `ShallowWrapper {}`;
+
+exports[`SearchForm Test Suite should default state and calls a function on change 1`] = `
+Array [
+  <form
+    className="main-search"
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="search"
+    >
+      <input
+        className="main-search--input"
+        onChange={[Function]}
+        placeholder="Enter a film"
+        type="text"
+        value=""
+      />
+    </label>
+    <input
+      className="main-search--button"
+      type="submit"
+      value="Submit"
+    />
+  </form>,
+  <input
+    className="movies-container--button"
+    type="submit"
+    value="Title"
+  />,
+  <input
+    className="movies-container--button"
+    type="submit"
+    value="Genre"
+  />,
+]
+`;

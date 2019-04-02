@@ -15,7 +15,7 @@ CardsList.defaultProps = {
 };
 
 CardsList.propTypes = {
-  films: PropTypes.shape({ films: PropTypes.object.isRequired }),
+  films: PropTypes.shape({ films: PropTypes.array }),
 };
 
 export default CardsList;

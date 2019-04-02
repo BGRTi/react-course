@@ -13,7 +13,7 @@ Card.defaultProps = {
 };
 
 Card.propTypes = {
-  film: PropTypes.shape({ film: PropTypes.object.isRequired }),
+  film: PropTypes.shape({ film: PropTypes.object }),
 };
 
 export default Card;

@@ -13,7 +13,7 @@ describe('MoviePageContainer Test Suite', () => {
     const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });
-      
+
   it('Should have an image', () => {
     const { wrapper } = setup();
     expect(wrapper.find('.movie-page').exists()).toBe(true);

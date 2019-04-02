@@ -8,7 +8,7 @@ const film = {
   duration: '151',
   description: 'Some text about film',
   genres: ['drama', 'ne drama'],
-}
+};
 
 function setup() {
   const wrapper = shallow(<Card film={film} />);
@@ -18,9 +18,9 @@ function setup() {
 describe('CardsList Test Suite', () => {
   it('render a CardsList', () => {
     const { wrapper } = setup();
-    
+
     expect(wrapper).toMatchSnapshot();
-  });  
+  });
 
   it('Should have an image', () => {
     const { wrapper } = setup();
