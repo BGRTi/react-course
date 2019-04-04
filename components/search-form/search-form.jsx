@@ -1,29 +1,26 @@
 import React from 'react';
 
-export default class SearchForm extends React.Component {
+class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: '' };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({ value: event.target.value });
   }
 
-  handleSubmit(event) {
-    console.info(`A film was submitted: ${this.state.value}`);
+  handleSubmit = (event) => {
     event.preventDefault();
   }
 
   render() {
+    const { value } = this.state;
     return (
       <React.Fragment>
         <form className="main-search" onSubmit={this.handleSubmit}>
-          <label>
-            <input className="main-search--input" type="text" placeholder="Enter a film" value={this.state.value} onChange={this.handleChange} />
+          <label htmlFor="search">
+            <input className="main-search--input" type="text" placeholder="Enter a film" value={value} onChange={this.handleChange} />
           </label>
           <input className="main-search--button" type="submit" value="Submit" />
         </form>
@@ -33,3 +30,5 @@ export default class SearchForm extends React.Component {
     );
   }
 }
+
+export default SearchForm;

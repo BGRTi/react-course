@@ -1,21 +1,21 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Header from './Header';
+import MoviePageContainer from './movie-page';
 
 function setup() {
-  const wrapper = shallow(<Header />);
+  const wrapper = shallow(<MoviePageContainer />);
   return { wrapper };
 }
 
-describe('HelloFunctionalComponent Test Suite', () => {
-  it('render a Header', () => {
+describe('MoviePageContainer Test Suite', () => {
+  it('render a MoviePageContainer', () => {
     const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });
 
   it('Should have an image', () => {
     const { wrapper } = setup();
-    expect(wrapper.find('.main-header').exists()).toBe(true);
+    expect(wrapper.find('.movie-page').exists()).toBe(true);
   });
 });
