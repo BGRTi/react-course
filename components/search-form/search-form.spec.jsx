@@ -18,13 +18,13 @@ describe('SearchForm Test Suite', () => {
   it('should default state and calls a function on change', () => {
     const fn = jest.fn();
     const component = renderer.create(
-      <SearchForm onChange={fn} />
+      <SearchForm onChange={fn} />,
     );
-    
+
     Enzyme.configure({ adapter: new Adapter() });
-    
+
     const instance = component.getInstance();
-    
+
     instance.props.onChange();
 
     expect(fn.mock.calls.length).toBe(1);

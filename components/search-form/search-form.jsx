@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import searchMovie from '../../actions/movies';
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -11,6 +13,7 @@ class SearchForm extends React.Component {
   }
 
   handleSubmit = (event) => {
+    searchMovie(event.target.value);
     event.preventDefault();
   }
 
@@ -31,4 +34,8 @@ class SearchForm extends React.Component {
   }
 }
 
-export default SearchForm;
+const mapDispatchToProps = dispatch => ({
+  addTodoProp: ({ newMovies }) => dispatch(searchMovie(newMovies)),
+});
+
+export default connect(null, mapDispatchToProps)(SearchForm);
