@@ -1,10 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import MoviesContainer from '../movies/movies';
 import Header from '../header/header';
 import SearchForm from '../search-form/search-form';
 import ErrorBoundary from './error-boundary';
-
-export default class MainComponent extends React.Component {
+class MainComponent extends React.Component {
   constructor(props) {
     super(props);
 
@@ -12,17 +12,25 @@ export default class MainComponent extends React.Component {
       someState: 'Movies',
     };
   }
-
+  
   render() {
-    const { someState } = this.state;
+    const { movies } = this.props;
     return (
       <ErrorBoundary>
         <div className="main">
           <Header />
           <SearchForm />
-          <MoviesContainer props={someState} />
+          <MoviesContainer props={movies} />
         </div>
       </ErrorBoundary>
     );
   }
 }
+
+const mapStateToProps = (store) => {
+  return {
+    movies: store.posts.movies,
+  };
+};
+
+export default connect(mapStateToProps)(MainComponent);

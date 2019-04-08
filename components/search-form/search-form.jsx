@@ -13,12 +13,13 @@ class SearchForm extends React.Component {
   }
 
   handleSubmit = (event) => {
-    searchMovie(event.target.value);
+    this.setState({ value: searchMovie(event.target.value) });
     event.preventDefault();
   }
 
   render() {
     const { value } = this.state;
+    console.log(this.state);
     return (
       <React.Fragment>
         <form className="main-search" onSubmit={this.handleSubmit}>
@@ -35,7 +36,7 @@ class SearchForm extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addTodoProp: ({ newMovies }) => dispatch(searchMovie(newMovies)),
+  searchMovieProp: ({ newMovies }) => dispatch(searchMovie(newMovies)),
 });
 
 export default connect(null, mapDispatchToProps)(SearchForm);
