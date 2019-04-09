@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 const Card = ({ film }) => (
   <div className="movie-card">
-    <img src="https://via.placeholder.com/200x300" alt="img" />
-    <div>{film.name}</div>
+    <img src={film.poster_path} alt="img" height="300px" />
+    <div>{film.title}</div>
+    <div>Release date: {film.release_date}</div>
   </div>
 );
 

@@ -1,10 +1,10 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import reducers from './reducers';
 
-const initialState = {
-  movies: [],
-};
-
-const store = createStore(reducers, initialState);
+const store = createStore(
+  reducers,
+  applyMiddleware(thunk),
+);
 
 export default store;

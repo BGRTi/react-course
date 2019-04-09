@@ -5,6 +5,7 @@ import searchMovie from '../../actions/movies';
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = { value: '' };
   }
 
@@ -13,13 +14,14 @@ class SearchForm extends React.Component {
   }
 
   handleSubmit = (event) => {
-    this.setState({ value: searchMovie(event.target.value) });
+    const { searchMovieProp } = this.props;
+    this.setState({ value: searchMovieProp(this.state.value) });
     event.preventDefault();
   }
 
   render() {
     const { value } = this.state;
-    console.log(this.state);
+
     return (
       <React.Fragment>
         <form className="main-search" onSubmit={this.handleSubmit}>
@@ -35,8 +37,12 @@ class SearchForm extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  value: state.value || [],
+});
+
 const mapDispatchToProps = dispatch => ({
   searchMovieProp: ({ newMovies }) => dispatch(searchMovie(newMovies)),
 });
 
-export default connect(null, mapDispatchToProps)(SearchForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);

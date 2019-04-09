@@ -17,7 +17,9 @@
     "react-redux": "^6.0.1",
     "react-router": "^4.4.0",
     "react-router-dom": "^5.0.0",
+    "react-thunk": "^1.0.0",
     "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "webdriverio": "^5.7.8"
   },
   "scripts": {

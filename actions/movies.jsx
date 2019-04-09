@@ -24,7 +24,7 @@ const searchMovie = searchValue => (dispatch) => {
       return response;
     })
     .then(response => response.json())
-    .then(response => dispatch(getMoviesSuccess(response.movies)))
+    .then(response => dispatch(getMoviesSuccess(response.data)))
     .catch(response => dispatch(getMoviesFailure(response)));
 };
 

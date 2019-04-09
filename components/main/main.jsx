@@ -4,33 +4,33 @@ import MoviesContainer from '../movies/movies';
 import Header from '../header/header';
 import SearchForm from '../search-form/search-form';
 import ErrorBoundary from './error-boundary';
+
 class MainComponent extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      someState: 'Movies',
+      movies: 'Movies',
     };
   }
-  
+
   render() {
     const { movies } = this.props;
+    console.log(this.props);
     return (
       <ErrorBoundary>
         <div className="main">
           <Header />
           <SearchForm />
-          <MoviesContainer props={movies} />
+          <MoviesContainer movies={movies} />
         </div>
       </ErrorBoundary>
     );
   }
 }
 
-const mapStateToProps = (store) => {
-  return {
-    movies: store.posts.movies,
-  };
-};
+const mapStateToProps = store => ({
+  movies: store.movies,
+});
 
 export default connect(mapStateToProps)(MainComponent);
