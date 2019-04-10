@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import searchMovie from '../../actions/movies';
 
@@ -15,7 +16,8 @@ class SearchForm extends React.Component {
 
   handleSubmit = (event) => {
     const { searchMovieProp } = this.props;
-    this.setState({ value: searchMovieProp(this.state.value) });
+    const { value } = this.state;
+    this.setState({ value: searchMovieProp(value) });
     event.preventDefault();
   }
 
@@ -23,19 +25,23 @@ class SearchForm extends React.Component {
     const { value } = this.state;
 
     return (
-      <React.Fragment>
-        <form className="main-search" onSubmit={this.handleSubmit}>
-          <label htmlFor="search">
-            <input className="main-search--input" type="text" placeholder="Enter a film" value={value} onChange={this.handleChange} />
-          </label>
-          <input className="main-search--button" type="submit" value="Submit" />
-        </form>
-        <input className="movies-container--button" type="submit" value="Title" />
-        <input className="movies-container--button" type="submit" value="Genre" />
-      </React.Fragment>
+      <form className="main-search" onSubmit={this.handleSubmit}>
+        <label htmlFor="search">
+          <input className="main-search--input" type="text" placeholder="Enter a film" value={value} onChange={this.handleChange} />
+        </label>
+        <input className="main-search--button" type="submit" value="Submit" />
+      </form>
     );
   }
 }
+
+SearchForm.defaultProps = {
+  searchMovieProp: () => {},
+};
+
+SearchForm.propTypes = {
+  searchMovieProp: PropTypes.shape({ searchMovieProp: PropTypes.func }),
+};
 
 const mapStateToProps = state => ({
   value: state.value || [],

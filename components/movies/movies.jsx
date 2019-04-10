@@ -1,17 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CardsList from '../cards-list/cards-list';
 
-export default class MoviesContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      movies: [],
-    };
-  }
+const MoviesContainer = ({ movies }) => (
+  <CardsList movies={movies} />
+);
 
-  render() {
-    const { movies } = this.props;
+MoviesContainer.defaultProps = {
+  movies: [],
+};
 
-    return <CardsList movies={movies} />;
-  }
-}
+MoviesContainer.propTypes = {
+  movies: PropTypes.shape({ movies: PropTypes.array }),
+};
+
+export default MoviesContainer;
