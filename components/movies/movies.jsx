@@ -7,7 +7,7 @@ const MoviesContainer = ({ movies }) => (
 );
 
 MoviesContainer.defaultProps = {
-  movies: [],
+  movies: {},
 };
 
 MoviesContainer.propTypes = {

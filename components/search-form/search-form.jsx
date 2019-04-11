@@ -48,7 +48,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  searchMovieProp: ({ newMovies }) => dispatch(searchMovie(newMovies)),
+  searchMovieProp: newMovies => dispatch(searchMovie(newMovies)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);

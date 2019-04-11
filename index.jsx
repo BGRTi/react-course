@@ -12,10 +12,9 @@ const AppRouter = () => (
   <Router>
     <div>
       <Link to="/">Home</Link>
-      <Link to="/movie/">About</Link>
       <Header />
       <Route path="/" exact component={MainComponent} />
-      <Route path="/movie/" component={MoviePageComponent} />
+      <Route path="/movie/:id" component={MoviePageComponent} />
     </div>
   </Router>
 );

@@ -1,7 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import searchMovieById from '../../actions/movie';
 import CardsList from '../cards-list/cards-list';
 
-export default class MoviePageContainer extends React.Component {
+class MoviePageContainer extends React.Component {
   constructor(props) {
     super(props);
 
@@ -19,13 +22,42 @@ export default class MoviePageContainer extends React.Component {
     };
   }
 
+  componentDidMount = () => {
+    this.loadMovie();
+  }
+
+  loadMovie = () => {
+    const { match, searchMovieByIdProp } = this.props;
+    console.log(match.params.id);
+    searchMovieByIdProp(match.params.id);
+  }
+
   render() {
-    const { films } = this.state;
+    const { movie } = this.props;
+    console.log(this.props);
     return (
       <React.Fragment>
         <div className="movie-page" />
-        <CardsList films={films} />
+        <CardsList films={movie} />
       </React.Fragment>
     );
   }
 }
+
+
+MoviePageContainer.defaultProps = {
+  movie: [],
+};
+
+MoviePageContainer.propTypes = {
+  movie: PropTypes.shape({ movies: PropTypes.array }),
+};
+
+const mapStateToProps = store => ({
+  movie: store.movie,
+});
+const mapDispatchToProps = dispatch => ({
+  searchMovieByIdProp: movieId => dispatch(searchMovieById(movieId)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MoviePageContainer);

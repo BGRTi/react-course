@@ -10,10 +10,10 @@ class Filters extends React.Component {
     this.state = { value: '' };
   }
 
-  handleSubmit = (serachBy) => {
+  handleSubmit = (searchBy) => {
     const { getSearchByProp } = this.props;
     const { value } = this.state;
-    this.setState({ value: getSearchByProp(serachBy) });
+    // this.setState({ value: getSearchByProp(searchBy) });
   }
 
   render() {
@@ -22,8 +22,8 @@ class Filters extends React.Component {
 
     return (
       <React.Fragment>
-        <input className="movies-container--button" type="submit" value="Title" onSubmit={this.handleSubmit(title)} />
-        <input className="movies-container--button" type="submit" value="Genre" onSubmit={this.handleSubmit(genres)} />
+        <input className="movies-container--button" type="submit" value="Title" onClick={this.handleSubmit()} />
+        <input className="movies-container--button" type="submit" value="Genre" onClick={this.handleSubmit()} />
       </React.Fragment>
     );
   }
@@ -34,7 +34,7 @@ Filters.defaultProps = {
 };
 
 Filters.propTypes = {
-  getSearchByProp: PropTypes.shape({ getSearchByProp: PropTypes.func }),
+  getSearchByProp: PropTypes.func,
 };
 
 const mapDispatchToProps = dispatch => ({
