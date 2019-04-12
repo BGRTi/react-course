@@ -4,9 +4,9 @@ const getMovieRequest = () => ({
   type: 'GET_MOVIE_REQUEST',
 });
 
-const getMovieSuccess = movies => ({
+const getMovieSuccess = movie => ({
   type: 'GET_MOVIE_SUCCESS',
-  payload: movies,
+  payload: movie,
 });
 
 const getMovieFailure = () => ({

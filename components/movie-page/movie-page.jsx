@@ -2,33 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import searchMovieById from '../../actions/movie';
-import CardsList from '../cards-list/cards-list';
 
 class MoviePageContainer extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      films: [
-        {
-          id: 1,
-          name: 'first',
-          year: '1991',
-          duration: '151',
-          description: 'Some text about film',
-          genres: ['drama', 'ne drama'],
-        },
-      ],
+      films: {},
     };
   }
 
   componentDidMount = () => {
+    console.log(2);
     this.loadMovie();
   }
 
   loadMovie = () => {
     const { match, searchMovieByIdProp } = this.props;
-    console.log(match.params.id);
     searchMovieByIdProp(match.params.id);
   }
 
@@ -37,8 +27,18 @@ class MoviePageContainer extends React.Component {
     console.log(this.props);
     return (
       <React.Fragment>
-        <div className="movie-page" />
-        <CardsList films={movie} />
+        { movie.status === 'STATUS_DONE'
+          ? (
+            <div className="movie-card">
+              <img src={movie.movie.poster_path} alt="img" height="300px" />
+              <div>{movie.movie.title}</div>
+              <div>
+                Release date:
+                {movie.movie.release_date}
+              </div>
+            </div>
+          )
+          : 'Nothing to show'}
       </React.Fragment>
     );
   }
@@ -46,11 +46,13 @@ class MoviePageContainer extends React.Component {
 
 
 MoviePageContainer.defaultProps = {
-  movie: [],
+  movie: {},
+  searchMovieByIdProp: () => {},
 };
 
 MoviePageContainer.propTypes = {
-  movie: PropTypes.shape({ movies: PropTypes.array }),
+  movie: PropTypes.shape({ movie: PropTypes.array }),
+  searchMovieByIdProp: PropTypes.func,
 };
 
 const mapStateToProps = store => ({

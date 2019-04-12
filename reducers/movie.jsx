@@ -18,7 +18,7 @@ const movie = (state = [], action) => {
       return {
         ...state,
         status: 'STATUS_DONE',
-        movies: payload,
+        movie: payload,
       };
 
     default:
