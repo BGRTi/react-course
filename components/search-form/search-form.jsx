@@ -7,7 +7,18 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { value: '' };
+    this.state = {
+      value: '',
+      searchBy: 'genres',
+    };
+  }
+
+  searchByGenres = () => {
+    this.setState({ searchBy: 'genres' });
+  }
+
+  searchByTitle = () => {
+    this.setState({ searchBy: 'title' });
   }
 
   handleChange = (event) => {
@@ -16,8 +27,8 @@ class SearchForm extends React.Component {
 
   handleSubmit = (event) => {
     const { searchMovieProp } = this.props;
-    const { value } = this.state;
-    this.setState({ value: searchMovieProp(value) });
+    const { value, searchBy } = this.state;
+    this.setState({ value: searchMovieProp(value, searchBy) });
     event.preventDefault();
   }
 
@@ -25,12 +36,16 @@ class SearchForm extends React.Component {
     const { value } = this.state;
 
     return (
-      <form className="main-search" onSubmit={this.handleSubmit}>
-        <label htmlFor="search">
-          <input className="main-search--input" type="text" placeholder="Enter a film" value={value} onChange={this.handleChange} />
-        </label>
-        <input className="main-search--button" type="submit" value="Submit" />
-      </form>
+      <React.Fragment>
+        <form className="main-search" onSubmit={this.handleSubmit}>
+          <label htmlFor="search">
+            <input className="main-search--input" type="text" placeholder="Enter a film" value={value} onChange={this.handleChange} />
+          </label>
+          <input className="main-search--button" type="submit" value="Submit" />
+        </form>
+        <input className="movies-container--button" type="submit" value="Title" onSubmit={this.searchBytitle} />
+        <input className="movies-container--button" type="submit" value="Genre" onSubmit={this.searchByGenres} />
+      </React.Fragment>
     );
   }
 }

@@ -1,15 +1,15 @@
 const url = 'https://reactjs-cdp.herokuapp.com/movies/';
 
-const getMovieRequest = () => ({
+export const getMovieRequest = () => ({
   type: 'GET_MOVIE_REQUEST',
 });
 
-const getMovieSuccess = movie => ({
+export const getMovieSuccess = movie => ({
   type: 'GET_MOVIE_SUCCESS',
   payload: movie,
 });
 
-const getMovieFailure = () => ({
+export const getMovieFailure = () => ({
   type: 'GET_MOVIE_FAILURE',
 });
 

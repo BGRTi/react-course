@@ -1,5 +1,3 @@
-const url = 'https://reactjs-cdp.herokuapp.com/movies?search=';
-
 const getMoviesRequest = () => ({
   type: 'GET_MOVIES_REQUEST',
 });
@@ -13,10 +11,10 @@ const getMoviesFailure = () => ({
   type: 'GET_MOVIES_FAILURE',
 });
 
-const searchMovie = searchValue => (dispatch) => {
+const searchMovie = ({ searchValue, searchBy }) => (dispatch) => {
   dispatch(getMoviesRequest());
 
-  fetch(url + searchValue)
+  fetch(`https://reactjs-cdp.herokuapp.com/movies?searchBy=${searchBy}&search=${searchValue}`)
     .then((response) => {
       if (!response.ok) {
         throw Error(response.statusText);
