@@ -1,13 +1,32 @@
-import { getMovieRequest, getMovieSuccess, getMovieFailure } from './movies';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import fetchMock from 'fetch-mock';
+import searchMovie from './movies';
 
-describe('Movies actions Test Suite', () => {
-  it('should return request type', () => {
-    expect(getMovieRequest()).toEqual({type: 'GET_MOVIE_REQUEST'});
-  });
-  it('should return success type', () => {
-    expect(getMovieSuccess('sometext')).toEqual({type: 'GET_MOVIE_SUCCESS', payload: 'sometext'});
-  });
-  it('should return failure type', () => {
-    expect(getMovieFailure()).toEqual({type: 'GET_MOVIE_FAILURE'});
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
+
+describe('async actions', () => {
+  afterEach(() => {
+    fetchMock.restore();
+  })
+
+  it('creates GET_MOVIE_SUCCESS when fetching movie has been done', () => {
+    fetchMock.getOnce('https://reactjs-cdp.herokuapp.com/movies?searchBy=mock&search=genre', {
+      body: { movie: ['do something'] },
+      headers: { 'content-type': 'application/json' },
+    });
+
+    const expectedActions = [
+      { type: 'GET_MOVIE_REQUEST' },
+      { type: 'GET_MOVIE_SUCCESS', body: { movie: ['do something'] } },
+    ];
+    const store = mockStore({ movie: [] });
+    const searchBy = 'mock';
+    const searchValue = 'genre';
+    return store.dispatch(searchMovie({ searchBy, searchValue })).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
   });
 });
