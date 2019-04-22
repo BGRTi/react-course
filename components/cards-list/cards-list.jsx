@@ -2,20 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from '../card/card';
 
-const CardsList = ({ films }) => (
+const CardsList = ({ movies }) => (
   <div className="movies-container">
-    { films.length !== 0 ? films.map(film => (
-      <Card film={film} key={film.id} />
+    { movies.status === 'STATUS_DONE' ? movies.movies.map(movie => (
+      <Card film={movie} key={movie.id} />
     )) : 'Films not found'}
   </div>
 );
 
 CardsList.defaultProps = {
-  films: {},
+  movies: {},
 };
 
 CardsList.propTypes = {
-  films: PropTypes.shape({ films: PropTypes.array }),
+  movies: PropTypes.shape({ movies: PropTypes.array }),
 };
 
 export default CardsList;
