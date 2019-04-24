@@ -10,7 +10,7 @@ const mockStore = configureMockStore(middlewares);
 describe('async actions', () => {
   afterEach(() => {
     fetchMock.restore();
-  })
+  });
 
   it('creates GET_MOVIE_SUCCESS when fetching movie has been done', () => {
     fetchMock.getOnce('https://reactjs-cdp.herokuapp.com/movies?searchBy=mock&search=genre', {

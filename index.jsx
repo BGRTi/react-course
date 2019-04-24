@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import Header from './components/header/header';
 import MainComponent from './components/main/main';
 import MoviePageComponent from './components/movie-page/movie-page';
+import NoMatch from './components/no-match/no-match';
 import store from './store';
 
 const AppRouter = () => (
@@ -15,6 +16,7 @@ const AppRouter = () => (
       <Header />
       <Route path="/" exact component={MainComponent} />
       <Route path="/movie/:id" component={MoviePageComponent} />
+      <Route component={NoMatch} />
     </div>
   </Router>
 );
