@@ -15,6 +15,7 @@ const AppRouter = () => (
       <Link to="/">Home</Link>
       <Header />
       <Route path="/" exact component={MainComponent} />
+      <Route path="/search/:query" component={MainComponent} />
       <Route path="/movie/:id" component={MoviePageComponent} />
       <Route component={NoMatch} />
     </div>
