@@ -9,11 +9,6 @@ class MoviePageContainer extends React.Component {
     this.loadMovie();
   }
 
-  componentWillMount = () => {
-    const { match, searchMovieByIdProp } = this.props;
-    console.log(match);
-  }
-
   loadMovie = () => {
     const { match, searchMovieByIdProp } = this.props;
     searchMovieByIdProp(match.params.id);
