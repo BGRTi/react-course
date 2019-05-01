@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import searchMovie from '../../actions/movies';
 
@@ -10,6 +11,7 @@ class SearchForm extends React.Component {
     this.state = {
       value: '',
       searchBy: 'genres',
+      redirect: false,
     };
   }
 
@@ -22,7 +24,18 @@ class SearchForm extends React.Component {
   }
 
   handleChange = (event) => {
-    this.setState({ value: event.target.value });
+    this.setState({
+      value: event.target.value,
+      redirect: true,
+    });
+  }
+
+  renderRedirect = (event) => {
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect to={`/search/${event.target.value}`} />;
+    }
+    return null;
   }
 
   handleSubmit = (event) => {
@@ -37,6 +50,7 @@ class SearchForm extends React.Component {
 
     return (
       <React.Fragment>
+        {this.renderRedirect()}
         <form className="main-search" onSubmit={this.handleSubmit}>
           <label htmlFor="search">
             <input className="main-search--input" type="text" placeholder="Enter a film" value={value} onChange={this.handleChange} />
