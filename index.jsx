@@ -22,4 +22,4 @@ const AppRouter = () => (
   </Router>
 );
 
-ReactDOM.render(<Provider store={store}><AppRouter /></Provider>, document.getElementById('root'));
+ReactDOM.hydrate(<Provider store={store}><AppRouter /></Provider>, document.getElementById('root'));

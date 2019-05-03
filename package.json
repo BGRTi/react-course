@@ -22,7 +22,8 @@
     "redux": "^4.0.1",
     "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0",
-    "webdriverio": "^5.7.8"
+    "webdriverio": "^5.7.8",
+    "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
     "lint": "eslint",
@@ -80,6 +81,7 @@
     "react-test-renderer": "^16.8.6",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
+    "webpack-cli": "^3.3.0",
+    "webpack-merge": "^4.2.1"
   }
 }
