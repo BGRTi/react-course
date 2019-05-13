@@ -1,3 +1,4 @@
+import qs from 'qs';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
@@ -26,7 +27,6 @@ function renderHTML(html, preloadedState) {
 
 export default function serverRenderer() {
   return (req, res) => {
-    // This context object contains the results of the render
     const context = {};
 
     const renderRoot = () => (
@@ -38,17 +38,18 @@ export default function serverRenderer() {
       />
     );
 
-      const htmlString = renderToString(renderRoot());
+    const htmlString = renderToString(renderRoot());
 
-      if (context.url) {
-        res.writeHead(302, {
-          Location: context.url,
-        });
-        res.end();
-        return;
-      }
+    if (context.url) {
+      res.writeHead(302, {
+        Location: context.url,
+      });
+      res.end();
+      return;
+    }
+    const preloadedState = store.getState();
 
-      res.send(renderHTML(htmlString, preloadedState));
+    res.send(renderHTML(htmlString, preloadedState));
 
     renderToString(renderRoot());
   };
