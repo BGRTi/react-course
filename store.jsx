@@ -1,13 +1,19 @@
 import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import reducers from './reducers';
+import createSagaMiddleware, { END } from 'redux-saga';
+import { rootSaga, reducers } from './reducers/index';
 
-const preloadedState = window.PRELOADED_STATE;
+const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(
-  reducers,
-  preloadedState,
-  applyMiddleware(thunk),
-);
+export default (initialState) => {
+  const store = createStore(
+    reducers,
+    initialState,
+    applyMiddleware(sagaMiddleware),
+  );
 
-export default store;
+  sagaMiddleware.run(rootSaga);
+  store.runSaga = () => sagaMiddleware.run(rootSaga);
+  store.close = () => store.dispatch(END);
+
+  return store;
+};

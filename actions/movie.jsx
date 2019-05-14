@@ -1,8 +1,6 @@
-const url = 'https://reactjs-cdp.herokuapp.com/movies/';
+import { call, put, takeLatest } from 'redux-saga/effects';
 
-export const getMovieRequest = () => ({
-  type: 'GET_MOVIE_REQUEST',
-});
+const url = 'https://reactjs-cdp.herokuapp.com/movies/';
 
 export const getMovieSuccess = movie => ({
   type: 'GET_MOVIE_SUCCESS',
@@ -13,18 +11,19 @@ export const getMovieFailure = () => ({
   type: 'GET_MOVIE_FAILURE',
 });
 
-const searchMovieById = searchId => (dispatch) => {
-  dispatch(getMovieRequest());
-  fetch(url + searchId)
-    .then((response) => {
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      return response;
-    })
-    .then(response => response.json())
-    .then(response => dispatch(getMovieSuccess(response)))
-    .catch(response => dispatch(getMovieFailure(response)));
-};
+function* searchMovieById(searchId) {
+  const response = yield call(fetch, url + searchId);
 
-export default searchMovieById;
+  if (!response.ok) {
+    const movies = yield response.json();
+    yield put(getMovieSuccess(movies));
+  } else {
+    yield put(getMovieFailure(response));
+  }
+}
+
+function* watchSearchMovieById() {
+  yield takeLatest('GET_MOVIE_REQUEST', searchMovieById);
+}
+
+export default watchSearchMovieById;
