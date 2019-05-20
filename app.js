@@ -1,8 +1,18 @@
 const express = require('express');
-const React = require('react')
 const app = express();
-const port = 3000;
+const port = 8000;
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const webpackHotServerMiddleware = require('webpack-hot-server-middleware');
+const webpackConfig = require('../webpack');
 
-app.get('/', (req, res) => res.send('Hello World!'));
+const compiler = webpack(webpackConfig);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.use(webpackDevMiddleware(compiler));
+app.use(webpackHotMiddleware(compiler.compilers.find(c => c.name === 'client')));
+app.use(webpackHotServerMiddleware(compiler));
+
+app.listen(port, () => {
+  console.info(`Express listening on port ${port}`); // eslint-disable-line
+});
