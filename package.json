@@ -6,6 +6,7 @@
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.5",
+    "babel-plugin-react-flow-props-to-prop-types": "^0.15.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
@@ -36,7 +37,10 @@
     "webpack:dev": "cross-env NODE_ENV=development webpack --config ./webpack/webpack-dev.cfg.js",
     "webpack:prod": "cross-env NODE_ENV=production webpack --config ./webpack/webpack-prod.cfg.js",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build": "babel src/ -d lib/",
+    "prepublish": "npm run build",
+    "flow": "flow"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -71,8 +75,14 @@
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-links": "^5.0.11",
+    "@storybook/addons": "^5.0.11",
+    "@storybook/react": "^5.0.11",
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
+    "babel-preset-flow": "^6.23.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "enzyme-to-json": "^3.3.5",
@@ -81,16 +91,13 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
+    "flow-bin": "^0.98.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.5.0",
     "react-test-renderer": "^16.8.6",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
-    "webpack-merge": "^4.2.1",
-    "@storybook/react": "^5.0.11",
-    "@storybook/addon-actions": "^5.0.11",
-    "@storybook/addon-links": "^5.0.11",
-    "@storybook/addons": "^5.0.11"
+    "webpack-merge": "^4.2.1"
   }
 }

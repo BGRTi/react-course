@@ -4,7 +4,14 @@ import { connect } from 'react-redux';
 import searchMovieById from '../../actions/movie';
 import CardList from '../cards-list/cards-list';
 
-class MoviePageContainer extends React.Component {
+type Props = {
+  movie?: { movie: Array<string> },
+  searchMovieByIdProp?: void,
+  match?: { params: Array<string> },
+  movies?: Array<string>
+};
+
+class MoviePageContainer extends React.Component<Props> {
   componentDidMount = () => {
     this.loadMovie();
   }

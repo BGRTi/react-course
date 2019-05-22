@@ -7,7 +7,21 @@ import SearchForm from '../search-form/search-form';
 import searchMovie from '../../actions/movies';
 import ErrorBoundary from './error-boundary';
 
-class MainComponent extends React.Component {
+// @flow
+
+type Props = {
+  movies?: Array<string>,
+  searchMovie: void,
+  match?: Array<string>,
+};
+
+class MainComponent extends React.Component<Props> {
+  static defaultProps = {
+    movies: [],
+    searchMovieProp: () => {},
+    match: {},
+  };
+
   componentWillMount = () => {
     const { match, searchMovieProp } = this.props;
     const query = match.params.id;
@@ -28,18 +42,6 @@ class MainComponent extends React.Component {
     );
   }
 }
-
-MainComponent.defaultProps = {
-  movies: [],
-  searchMovieProp: () => {},
-  match: {},
-};
-
-MainComponent.propTypes = {
-  movies: PropTypes.shape({ movies: PropTypes.array }),
-  searchMovieProp: PropTypes.func,
-  match: PropTypes.shape({ match: PropTypes.object }),
-};
 
 const mapStateToProps = store => ({
   movies: store.movies,

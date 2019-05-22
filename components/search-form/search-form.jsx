@@ -4,7 +4,15 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import searchMovie from '../../actions/movies';
 
-class SearchForm extends React.Component {
+type Props = {
+  searchMovieProp: void
+}
+
+class SearchForm extends React.Component<Props> {
+  static defaultProps = {
+    searchMovieProp: () => {},
+  }
+
   constructor(props) {
     super(props);
 
@@ -63,14 +71,6 @@ class SearchForm extends React.Component {
     );
   }
 }
-
-SearchForm.defaultProps = {
-  searchMovieProp: () => {},
-};
-
-SearchForm.propTypes = {
-  searchMovieProp: PropTypes.shape({ searchMovieProp: PropTypes.func }),
-};
 
 const mapStateToProps = state => ({
   value: state.value || [],
