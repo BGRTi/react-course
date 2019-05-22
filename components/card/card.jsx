@@ -10,8 +10,14 @@ type Film = {
   title: string
 };
 
+const MovieCard = styled.div`
+  display: block;
+  width: 30%;
+  align-self: center;
+`;
+
 const Card = (film: Film) => (
-  <div className="movie-card">
+  <MovieCard>
     <Link to={`/movie/${film.id}`}>
       <img src={film.poster_path} alt="img" height="300px" />
     </Link>
@@ -20,7 +26,7 @@ const Card = (film: Film) => (
       Release date:
       {film.release_date}
     </div>
-  </div>
+  </MovieCard>
 );
 
 export default Card;

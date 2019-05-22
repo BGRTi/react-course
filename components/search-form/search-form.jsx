@@ -4,9 +4,20 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import searchMovie from '../../actions/movies';
 
+//@flow
+
 type Props = {
   searchMovieProp: void
 }
+
+const MainForm = styled.form`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  background-color: black;
+  height: 300px;
+`;
 
 class SearchForm extends React.Component<Props> {
   static defaultProps = {
@@ -59,12 +70,12 @@ class SearchForm extends React.Component<Props> {
     return (
       <React.Fragment>
         {this.renderRedirect()}
-        <form className="main-search" onSubmit={this.handleSubmit}>
+        <MainForm className="main-search" onSubmit={this.handleSubmit}>
           <label htmlFor="search">
             <input className="main-search--input" type="text" placeholder="Enter a film" value={value} onChange={this.handleChange} />
           </label>
           <input className="main-search--button" type="submit" value="Submit" />
-        </form>
+        </MainForm>
         <input className="movies-container--button" type="submit" value="Title" onSubmit={this.searchBytitle} />
         <input className="movies-container--button" type="submit" value="Genre" onSubmit={this.searchByGenres} />
       </React.Fragment>

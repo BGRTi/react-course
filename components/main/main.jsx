@@ -15,6 +15,10 @@ type Props = {
   match?: Array<string>,
 };
 
+const Main = styled.div`
+  height: 100vh;
+`;
+
 class MainComponent extends React.Component<Props> {
   static defaultProps = {
     movies: [],
@@ -33,11 +37,11 @@ class MainComponent extends React.Component<Props> {
     const { movies } = this.props;
     return (
       <ErrorBoundary>
-        <div className="main">
+        <Main>
           <Header />
           <SearchForm />
           <MoviesContainer movies={movies} />
-        </div>
+        </Main>
       </ErrorBoundary>
     );
   }

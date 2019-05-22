@@ -11,12 +11,21 @@ type Movies = {
   }>,
 };
 
+const MovieContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  background-color: black;
+  height: 300px;
+`;
+
 const CardsList = (movies: Movies) => (
-  <div className="movies-container">
+  <MovieContainer>
     { movies.status === 'STATUS_DONE' ? movies.movies.map(movie => (
       <Card film={movie} key={movie.id} />
     )) : 'Films not found'}
-  </div>
+  </MovieContainer>
 );
 
 export default CardsList;
